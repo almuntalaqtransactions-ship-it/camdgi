@@ -72,9 +72,8 @@
             gap: 12px;
         }
 
-        /* الموضع الجديد لشعار Vibestream Pay الذي قمت برفعه */
         .logo-img {
-            height: 35px; /* تم تعديل الحجم ليظهر بشكل احترافي */
+            height: 35px;
             width: auto;
             object-fit: contain;
         }
@@ -178,7 +177,6 @@
             transform: scale(1.02);
         }
 
-        /* أيقونات الأزرار تم الحفاظ عليها كما هي */
         .btn-icon {
             width: 24px;
             height: 24px;
@@ -320,7 +318,7 @@
             box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
         }
 
-        /* المنتصف العائم (Popup Modal) يظهر فوراً عند الدخول */
+        /* Popup Modal */
         .initial-banner-overlay {
             position: fixed;
             top: 0;
@@ -493,7 +491,7 @@
             background-color: var(--blue-800);
         }
 
-        /* Footer handled with 100% Vibestream branding */
+        /* Footer */
         footer {
             background-color: var(--slate-900);
             color: var(--slate-300);
@@ -596,7 +594,7 @@
                     <span id="btn-text-reload">Instant Prepaid Reload</span>
                 </button>
                 <button onclick="handleAction('bill')" class="action-btn btn-white">
-                    <img src="/manus-storage/1000092107_6e269d59.svg" alt="Bill Payment Icon" class="btn-icon" />
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/UajmAYieHDKmzJqU.svg" alt="Bill Payment Icon" class="btn-icon" />
                     <span id="btn-text-bill">Pay Postpaid & Fibre Bills</span>
                 </button>
             </div>
@@ -837,13 +835,13 @@
                 ],
                 answers: [
                     "Portal Ekspres Vibestream Pay ialah utiliti digital selamat yang menyediakan tambah nilai pantas dan perkhidmatan pengebilan pascabayar untuk rangkaian telekomunikasi utama Malaysia secara cekap dan selamat.",
-                    "Kebanyakan tambah nilai prabayar diproses secara peranti segera. Anda akan menerima mesej pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
+                    "Kebanyakan tambah nilai prabayar diproses secara peranti segera. Anda akan menerima meseج pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
                     "Kami menerima kad kredit dan debit utama, portal perbankan internet yang seguro, dan dompet mudah alih digital yang diiktiraf yang disokong oleh Samsung Pay dan Google Wallet.",
                     "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan kelayakan anda dilindungi sepenuhnya daripada akses yang tidak بنAuthorized.",
                     "Ya. Sebaik sahaja bil tertunggak sepenuhnya berjaya diselesaikan melalui sistem kami, perkhidmatan rangkaian anda biasanya dipulihkan oleh penyedia dalam masa 30 minit.",
                     "Tiada yuran tambahan yang tersembunyi. Amaun yang anda pilih untuk tambah nilai prabayar atau baki invois pascabayar anda yang tepat adalah amaun langsung yang diproses melalui gerbang pembayaran.",
                     "Dalam kes kesesakan yang jarang berlaku, pemprosesan boleh mengambil masa sehingga 10 minit. Jika baki anda belum dikemas kini selepas itu, sila hubungi meja sokongan kami dengan kod resit pembayaran anda dengan segera.",
-                    "Ya, anda boleh memasukkan sebarang nombor pendaftaran telekom Malaysia yang sah untuk melakukan perkhidmatan kiriman wang atau tambah nilai dalam talian dengan selamat untuk keluarga dan rakan-rakan.",
+                    "Ya, anda boleh memasukkan sebarang nombor pendaftaran telekom Malaysia yang sah untuk melakukan perkhidmatan kiriman wang atau tambah nilai dalam talian dengan safe untuk keluarga dan rakan-rakan.",
                     "Ya, sistem pengumpulan kami beroperasi secara automatik sepenuhnya 24/7 sepanjang tahun, memastikan anda kekal berhubung apabila anda memerlukan pemenuhan pengebilan segera.",
                     "Ya. Resit pembayaran digital yang mengandungi ID rujukan transaksi dan ringkasan pengiriman wang tertentu dipaparkan serta-merta pada skrin dan dihantar melalui e-mel selepas penyusunan."
                 ]
