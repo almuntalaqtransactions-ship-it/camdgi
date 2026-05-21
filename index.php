@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibestream Pay - Reliable Payment Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Variables & Pure CSS Formatting for 100% Railway Compatibility */
+        :root {
+            --blue-700: #1d4ed8;
+            --blue-800: #1e40af;
+            --blue-900: #1e3a8a;
+            --yellow-400: #facc15;
+            --yellow-300: #fde047;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--slate-100);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* 600px App-Like Constraint for Google Ads Review Compatibility */
+        .app-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header {
+            background-color: var(--blue-700);
+            color: #ffffff;
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* الموضع الجديد لشعار Vibestream Pay الذي قمت برفعه */
+        .logo-img {
+            height: 35px; /* تم تعديل الحجم ليظهر بشكل احترافي */
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-active {
+            background-color: var(--yellow-400);
+            color: var(--blue-900);
+        }
+
+        .lang-inactive {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .lang-inactive:hover {
+            background-color: #3b82f6;
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, var(--blue-700), var(--blue-800), var(--blue-900));
+            color: #ffffff;
+            padding: 40px 24px;
+            text-align: center;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            line-height: 1.625;
+        }
+
+        .btn-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .btn-yellow {
+            background-color: var(--yellow-400);
+            color: var(--blue-900);
+        }
+
+        .btn-yellow:hover {
+            background-color: var(--yellow-300);
+            transform: scale(1.02);
+        }
+
+        .btn-white {
+            background-color: #ffffff;
+            color: var(--blue-700);
+        }
+
+        .btn-white:hover {
+            background-color: var(--slate-100);
+            transform: scale(1.02);
+        }
+
+        /* أيقونات الأزرار تم الحفاظ عليها كما هي */
+        .btn-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .faq-section {
+            padding: 40px 20px 20px 20px;
+            background-color: #ffffff;
+        }
+
+        .faq-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--blue-900);
+            margin-bottom: 8px;
+        }
+
+        .faq-divider {
+            width: 48px;
+            height: 4px;
+            background-color: var(--yellow-400);
+            border-radius: 2px;
+            margin: 0 auto 32px auto;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--slate-200);
+            border-radius: 8px;
+            background-color: var(--slate-50);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .faq-item.active {
+            border-color: var(--blue-700);
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-trigger {
+            width: 100%;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-trigger:hover {
+            background-color: var(--slate-100);
+        }
+
+        .faq-question-text {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--slate-900);
+            padding-right: 12px;
+        }
+
+        .faq-arrow {
+            width: 12px;
+            height: 12px;
+            border-right: 2px solid var(--slate-600);
+            border-bottom: 2px solid var(--slate-600);
+            transform: rotate(45deg);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(-135deg);
+            border-color: var(--yellow-400);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+            background-color: #ffffff;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            border-top: 1px solid var(--slate-200);
+        }
+
+        .faq-answer p {
+            padding: 16px;
+            font-size: 14px;
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+
+        /* Legal Links Section Below FAQs */
+        .legal-links-section {
+            padding: 10px 20px 30px 20px;
+            background-color: #ffffff;
+        }
+
+        .legal-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .legal-link-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            background-color: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 10px;
+            color: var(--slate-700);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .legal-link-card:hover {
+            background-color: var(--blue-700);
+            color: #ffffff;
+            border-color: var(--blue-700);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+        }
+
+        /* المنتصف العائم (Popup Modal) يظهر فوراً عند الدخول */
+        .initial-banner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .initial-banner-box {
+            background-color: var(--slate-900);
+            color: #ffffff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 16px;
+            border: 3px solid var(--yellow-400);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .banner-header-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--yellow-400);
+            margin-bottom: 16px;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+        }
+
+        .banner-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .banner-link-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 6px;
+            color: var(--slate-300);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .banner-link-item:hover {
+            background-color: var(--blue-700);
+            color: #ffffff;
+            border-color: var(--blue-700);
+        }
+
+        .banner-disclaimer-text {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #cbd5e1;
+            text-align: justify;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .banner-footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .banner-timer-badge {
+            background-color: var(--yellow-400);
+            color: var(--slate-900);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .banner-accept-btn {
+            flex-grow: 1;
+            padding: 10px 16px;
+            background-color: var(--blue-700);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .banner-accept-btn:hover {
+            background-color: var(--blue-800);
+        }
+
+        /* Action Modal Popup handling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-icon-wrapper {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 8px;
+        }
+
+        .modal-box p {
+            font-size: 14px;
+            color: var(--slate-600);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .modal-close-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--blue-700);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--blue-800);
+        }
+
+        /* Footer handled with 100% Vibestream branding */
+        footer {
+            background-color: var(--slate-900);
+            color: var(--slate-300);
+            padding: 32px 20px;
+            text-align: center;
+            border-top: 4px solid var(--blue-700);
+        }
+
+        .footer-company {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .footer-desc {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--slate-300);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow-400);
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            opacity: 0.7;
+            border-top: 1px solid var(--slate-700);
+            padding-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="initial-banner-overlay" id="main-landing-banner">
+        <div class="initial-banner-box">
+            <div class="banner-header-title" id="banner-top-title">
+                This website is safely operated by Vibestream Payment Provider L.L.C.
+            </div>
+
+            <div class="banner-links-grid">
+                <a href="terms.php" class="banner-link-item" id="b-link-terms">Terms of Service</a>
+                <a href="privacy.php" class="banner-link-item" id="b-link-privacy">Privacy Policy</a>
+                <a href="disclaimer.php" class="banner-link-item" id="b-link-disclaimer">Legal Disclaimer</a>
+                <a href="refund.php" class="banner-link-item" id="b-link-refund">Refund Policy</a>
+            </div>
+
+            <div class="banner-disclaimer-text" id="banner-body-disclaimer">
+                <strong>Legal Disclaimer:</strong> This portal is an independent fee collection and payment remittance utility operated under Vibestream Payment Provider L.L.C. We are not directly owned by, associated with, or structured as a subsidiary of any Malaysian telecommunication provider. All network trademarks remain the properties of their respective statutory owners.
+            </div>
+
+            <div class="banner-footer-flex">
+                <span class="banner-timer-badge" id="banner-countdown">Session: 120s</span>
+                <button class="banner-accept-btn" onclick="acceptBannerTerms()" id="banner-btn-accept">Acknowledge & Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="header-flex">
+                <div class="logo-area">
+                    <img 
+                        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/QGaslqfEfmkbRZFB.png" 
+                        alt="Vibestream Pay Logo" 
+                        class="logo-img" 
+                    />
+                    <span id="logo-text" class="logo-text">Vibestream Pay</span>
+                </div>
+                <div class="lang-container">
+                    <button onclick="switchLanguage('en')" id="btn-lang-en" class="lang-btn lang-active">EN</button>
+                    <button onclick="switchLanguage('ms')" id="btn-lang-ms" class="lang-btn lang-inactive">MS</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h1 id="hero-title">Fast & Secure Malaysian Network Payments</h1>
+            <p id="hero-subtitle">Instantly reload your prepaid plans or settle your postpaid mobile and fibre bills with 100% encrypted security layers.</p>
+
+            <div class="btn-list">
+                <button onclick="handleAction('reload')" class="action-btn btn-yellow">
+                    <img src="/manus-storage/1000092108_a01f2e01.svg" alt="Reload Icon" class="btn-icon" />
+                    <span id="btn-text-reload">Instant Prepaid Reload</span>
+                </button>
+                <button onclick="handleAction('bill')" class="action-btn btn-white">
+                    <img src="/manus-storage/1000092107_6e269d59.svg" alt="Bill Payment Icon" class="btn-icon" />
+                    <span id="btn-text-bill">Pay Postpaid & Fibre Bills</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-divider"></div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(0)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">1. What is Vibestream Pay Express Portal?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Vibestream Pay Express Portal is a secure digital utility providing quick reloads and postpaid billing services for major Malaysian telecom networks efficiently and securely.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(1)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">2. How long does it take for a prepaid reload to be processed?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Most prepaid reloads are processed instantly. You will receive a confirmation message from your service provider within seconds of a successful payment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(2)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">3. Which payment methods do you accept on this portal?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">We accept major credit and debit cards, secure internet banking portals, and recognized digital mobile wallets supported by Samsung Pay and Google Wallet.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(3)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">4. Is my personal and payment card data completely secure?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Yes, absolutely. All transactions are processed using high-grade 256-bit SSL encryption protocols to ensure your credentials are fully safeguarded from unauthorized access.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(4)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">5. Can I pay bills for a line that has been temporarily disconnected?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Yes. Once the full outstanding bill is successfully settled through our system, your network service is typically restored by the provider within 30 minutes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(5)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">6. Are there any additional service fees charged on this portal?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">No extra fees are hidden. The amount you select for prepaid reload or your exact postpaid invoice balance is the direct amount processed through the checkout gateway.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(6)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">7. What should I do if my reload amount does not show up?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">In rare congestion events, processing can take up to 10 minutes. If your balance hasn't updated after that, please contact our support desk with your payment receipt code immediately.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(7)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">8. Can I reload or pay bills for someone else's account number?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Yes, you can input any valid Malaysian telecom registration number to perform an online remittance or top-up service securely for family and friends.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(8)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">9. Is this portal operational 24 hours a day?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Yes, our collection system operates fully automated 24/7 all year round, ensuring you remain connected whenever you require immediate billing fulfillment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button onclick="toggleFAQ(9)" class="faq-trigger">
+                        <span class="faq-question-text faq-q">10. Will I receive an official tax statement or payment receipt?</span>
+                        <span class="faq-arrow"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-a">Yes. A digital payment receipt containing transaction reference IDs and specific remittance summaries is displayed instantly on-screen and emailed upon compilation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="legal-links-section">
+            <div class="legal-links-grid">
+                <a href="terms.php" class="legal-link-card" id="l-link-terms">Terms of Service</a>
+                <a href="privacy.php" class="legal-link-card" id="l-link-privacy">Privacy Policy</a>
+                <a href="refund.php" class="legal-link-card" id="l-link-refund">Refund Policy</a>
+                <a href="disclaimer.php" class="legal-link-card" id="l-link-disclaimer">Legal Disclaimer</a>
+            </div>
+        </section>
+
+        <div id="action-modal" class="modal-overlay" onclick="closeModal()">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <div id="modal-icon-container" class="modal-icon-wrapper"></div>
+                <h3 id="modal-title"></h3>
+                <p id="modal-message"></p>
+                <button onclick="closeModal()" class="modal-close-btn">Close</button>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-company">Vibestream Payment Provider L.L.C.</div>
+            <p id="footer-desc" class="footer-desc">Official Fees Collection & Remittance Services Platform. Registered Address: Office No. 0128-51, Dubai Investment Park First, Dubai, UAE.</p>
+
+            <div class="footer-links">
+                <a href="privacy.php" id="f-link-privacy">Privacy Policy</a>
+                <a href="terms.php" id="f-link-terms">Terms of Service</a>
+                <a href="disclaimer.php" id="f-link-disclaimer">Legal Disclaimer</a>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; 2026 Vibestream Payment Provider L.L.C. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+
+        // 120s Countdown Timer Handling
+        let timeLeft = 120;
+        const timerElement = document.getElementById('banner-countdown');
+        
+        setInterval(function() {
+            timeLeft--;
+            if(timeLeft < 0) {
+                timeLeft = 120; 
+            }
+            if(currentLang === 'en') {
+                timerElement.innerText = "Session: " + timeLeft + "s";
+            } else {
+                timerElement.innerText = "Sesi: " + timeLeft + "s";
+            }
+        }, 1000);
+
+        // Initial Banner Close Handler
+        function acceptBannerTerms() {
+            document.getElementById('main-landing-banner').style.display = 'none';
+        }
+
+        // Translation Dictionary Handling
+        const translations = {
+            en: {
+                logo: "Vibestream Pay",
+                heroTitle: "Fast & Secure Malaysian Network Payments",
+                heroSubtitle: "Instantly reload your prepaid plans or settle your postpaid mobile and fibre bills with 100% encrypted security layers.",
+                btnReload: "Instant Prepaid Reload",
+                btnBill: "Pay Postpaid & Fibre Bills",
+                faqTitle: "Frequently Asked Questions",
+                footerDesc: "Official Fees Collection & Remittance Services Platform. Registered Address: Office No. 0128-51, Dubai Investment Park First, Dubai, UAE.",
+                bannerTop: "This website is safely operated by Vibestream Payment Provider L.L.C.",
+                bannerTerms: "Terms of Service",
+                bannerPrivacy: "Privacy Policy",
+                bannerDisclaimer: "Legal Disclaimer",
+                bannerRefund: "Refund Policy",
+                bannerBody: "<strong>Legal Disclaimer:</strong> This portal is an independent fee collection and payment remittance utility operated under Vibestream Payment Provider L.L.C. We are not directly owned by, associated with, or structured as a subsidiary of any Malaysian telecommunication provider. All network trademarks remain the properties of their respective statutory owners.",
+                bannerBtn: "Acknowledge & Proceed",
+                modalReloadTitle: "Prepaid Reload",
+                modalReloadMsg: "You will be securely connected to Vibestream Pay checkout gateway to process your prepaid reload. Your transaction is protected with 256-bit SSL encryption.",
+                modalBillTitle: "Bill Payment",
+                modalBillMsg: "You will be securely connected to Vibestream Pay checkout gateway to pay your postpaid and fibre bills. All transactions are fully encrypted and secure.",
+                questions: [
+                    "1. What is Vibestream Pay Express Portal?",
+                    "2. How long does it take for a prepaid reload to be processed?",
+                    "3. Which payment methods do you accept on this portal?",
+                    "4. Is my personal and payment card data completely secure?",
+                    "5. Can I pay bills for a line that has been temporarily disconnected?",
+                    "6. Are there any additional service fees charged on this portal?",
+                    "7. What should I do if my reload amount does not show up?",
+                    "8. Can I reload or pay bills for someone else's account number?",
+                    "9. Is this portal operational 24 hours a day?",
+                    "10. Will I receive an official tax statement or payment receipt?"
+                ],
+                answers: [
+                    "Vibestream Pay Express Portal is a secure digital utility providing quick reloads and postpaid billing services for major Malaysian telecom networks efficiently and securely.",
+                    "Most prepaid reloads are processed instantly. You will receive a confirmation message from your service provider within seconds of a successful payment.",
+                    "We accept major credit and debit cards, secure internet banking portals, and recognized digital mobile wallets supported by Samsung Pay and Google Wallet.",
+                    "Yes, absolutely. All transactions are processed using high-grade 256-bit SSL encryption protocols to ensure your credentials are fully safeguarded from unauthorized access.",
+                    "Yes. Once the full outstanding bill is successfully settled through our system, your network service is typically restored by the provider within 30 minutes.",
+                    "No extra fees are hidden. The amount you select for prepaid reload or your exact postpaid invoice balance is the direct amount processed through the checkout gateway.",
+                    "In rare congestion events, processing can take up to 10 minutes. If your balance hasn't updated after that, please contact our support desk with your payment receipt code immediately.",
+                    "Yes, you can input any valid Malaysian telecom registration number to perform an online remittance or top-up service securely for family and friends.",
+                    "Yes, our collection system operates fully automated 24/7 all year round, ensuring you remain connected whenever you require immediate billing fulfillment.",
+                    "Yes. A digital payment receipt containing transaction reference IDs and specific remittance summaries is displayed instantly on-screen and emailed upon compilation."
+                ]
+            },
+            ms: {
+                logo: "Vibestream Pay",
+                heroTitle: "Pembayaran Rangkaian Malaysia Pantas & Selamat",
+                heroSubtitle: "Tambah nilai pelan prabayar anda dengan serta-merta atau jelaskan bil mudah alih dan fiber pascabayar anda dengan lapisan keselamatan disulitkan 100%.",
+                btnReload: "Tambah Nilai Prabayar Segera",
+                btnBill: "Bayar Bil Pascabayar & Fiber",
+                faqTitle: "Soalan Lazim",
+                footerDesc: "Platform Pengumpulan Yuran & Perkhidmatan Remitansi Rasmi. Berdaftar di Pejabat 0128-51, Dubai Investment Park First, Dubai, UAE.",
+                bannerTop: "Laman web ini dikendalikan dengan selamat oleh Vibestream Payment Provider L.L.C.",
+                bannerTerms: "Syarat Perkhidmatan",
+                bannerPrivacy: "Dasar Privasi",
+                bannerDisclaimer: "Penafian Undang-undang",
+                bannerRefund: "Dasar Bayaran Balik",
+                bannerBody: "<strong>Penafian Undang-undang:</strong> Portal ini adalah utiliti kutipan yuran dan pengiriman pembayaran bebas yang dikendalikan di bawah Vibestream Payment Provider L.L.C. Kami tidak dimiliki secara langsung atau berstruktur sebagai anak syarikat mana-mana penyedia telekomunikasi Malaysia. Semua tanda dagangan rangkaian kekal sebagai hak milik pemilik berkanun masing-masing.",
+                bannerBtn: "Sahkan & Teruskan",
+                modalReloadTitle: "Tambah Nilai Prabayar",
+                modalReloadMsg: "Anda akan disambungkan dengan selamat ke gerbang pembayaran Vibestream Pay untuk memproses tambah nilai prabayar anda. Transaksi anda dilindungi dengan penyulitan SSL 256-bit.",
+                modalBillTitle: "Pembayaran Bil",
+                modalBillMsg: "Anda akan disambungkan dengan selamat ke gerbang pembayaran Vibestream Pay untuk membayar bil pascabayar dan fiber anda. Semua transaksi adalah disulitkan sepenuhnya dan selamat.",
+                questions: [
+                    "1. Apakah itu Portal Ekspres Vibestream Pay?",
+                    "2. Berapa lamakah masa yang diambil untuk tambah nilai prabayar diproses?",
+                    "3. Apakah kaedah pembayaran yang anda terima di portal ini?",
+                    "4. Adakah data peribadi dan kad pembayaran saya selamat sepenuhnya?",
+                    "5. Bolehkah saya membayar bil untuk talian yang telah diputuskan sementara?",
+                    "6. Adakah terdapat sebarang yuran perkhidmatan tambahan dikenakan?",
+                    "7. Apakah yang perlu saya lakukan jika jumlah tambah nilai tidak muncul?",
+                    "8. Bolehkah saya menambah nilai atau membayar bil untuk akaun orang lain?",
+                    "9. Adakah portal ini beroperasi 24 jam sehari?",
+                    "10. Adakah saya akan menerima penyata cukai rasmi atau resit pembayaran?"
+                ],
+                answers: [
+                    "Portal Ekspres Vibestream Pay ialah utiliti digital selamat yang menyediakan tambah nilai pantas dan perkhidmatan pengebilan pascabayar untuk rangkaian telekomunikasi utama Malaysia secara cekap dan selamat.",
+                    "Kebanyakan tambah nilai prabayar diproses secara peranti segera. Anda akan menerima mesej pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
+                    "Kami menerima kad kredit dan debit utama, portal perbankan internet yang seguro, dan dompet mudah alih digital yang diiktiraf yang disokong oleh Samsung Pay dan Google Wallet.",
+                    "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan kelayakan anda dilindungi sepenuhnya daripada akses yang tidak بنAuthorized.",
+                    "Ya. Sebaik sahaja bil tertunggak sepenuhnya berjaya diselesaikan melalui sistem kami, perkhidmatan rangkaian anda biasanya dipulihkan oleh penyedia dalam masa 30 minit.",
+                    "Tiada yuran tambahan yang tersembunyi. Amaun yang anda pilih untuk tambah nilai prabayar atau baki invois pascabayar anda yang tepat adalah amaun langsung yang diproses melalui gerbang pembayaran.",
+                    "Dalam kes kesesakan yang jarang berlaku, pemprosesan boleh mengambil masa sehingga 10 minit. Jika baki anda belum dikemas kini selepas itu, sila hubungi meja sokongan kami dengan kod resit pembayaran anda dengan segera.",
+                    "Ya, anda boleh memasukkan sebarang nombor pendaftaran telekom Malaysia yang sah untuk melakukan perkhidmatan kiriman wang atau tambah nilai dalam talian dengan selamat untuk keluarga dan rakan-rakan.",
+                    "Ya, sistem pengumpulan kami beroperasi secara automatik sepenuhnya 24/7 sepanjang tahun, memastikan anda kekal berhubung apabila anda memerlukan pemenuhan pengebilan segera.",
+                    "Ya. Resit pembayaran digital yang mengandungi ID rujukan transaksi dan ringkasan pengiriman wang tertentu dipaparkan serta-merta pada skrin dan dihantar melalui e-mel selepas penyusunan."
+                ]
+            }
+        };
+
+        // Language Switching Logic
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            // Header/Hero Update
+            document.getElementById('logo-text').innerText = t.logo;
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-subtitle').innerText = t.heroSubtitle;
+            document.getElementById('btn-text-reload').innerText = t.btnReload;
+            document.getElementById('btn-text-bill').innerText = t.btnBill;
+            document.getElementById('faq-title').innerText = t.faqTitle;
+            document.getElementById('footer-desc').innerText = t.footerDesc;
+            
+            // Initial Banner/Disclaimer Update
+            document.getElementById('banner-top-title').innerText = t.bannerTop;
+            document.getElementById('b-link-terms').innerText = t.bannerTerms;
+            document.getElementById('b-link-privacy').innerText = t.bannerPrivacy;
+            document.getElementById('b-link-disclaimer').innerText = t.bannerDisclaimer;
+            document.getElementById('b-link-refund').innerText = t.bannerRefund;
+            document.getElementById('banner-body-disclaimer').innerHTML = t.bannerBody;
+            document.getElementById('banner-btn-accept').innerText = t.bannerBtn;
+
+            // Legal Links Grid Update
+            document.getElementById('l-link-terms').innerText = t.bannerTerms;
+            document.getElementById('l-link-privacy').innerText = t.bannerPrivacy;
+            document.getElementById('l-link-refund').innerText = t.bannerRefund;
+            document.getElementById('l-link-disclaimer').innerText = t.bannerDisclaimer;
+
+            // Footer Links Update
+            document.getElementById('f-link-privacy').innerText = t.bannerPrivacy;
+            document.getElementById('f-link-terms').innerText = t.bannerTerms;
+            document.getElementById('f-link-disclaimer').innerText = t.bannerDisclaimer;
+
+            // FAQ Items Update
+            const qElements = document.querySelectorAll('.faq-q');
+            const aElements = document.querySelectorAll('.faq-a');
+            t.questions.forEach((q, i) => { if(qElements[i]) qElements[i].innerText = q; });
+            t.answers.forEach((a, i) => { if(aElements[i]) aElements[i].innerText = a; });
+
+            // Language Button State Update
+            if(lang === 'en') {
+                document.getElementById('btn-lang-en').className = "lang-btn lang-active";
+                document.getElementById('btn-lang-ms').className = "lang-btn lang-inactive";
+            } else {
+                document.getElementById('btn-lang-ms').className = "lang-btn lang-active";
+                document.getElementById('btn-lang-en').className = "lang-btn lang-inactive";
+            }
+        }
+
+        // FAQ Toggle Accordion logic
+        function toggleFAQ(index) {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach((item, i) => {
+                if(i === index) {
+                    item.classList.toggle('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Action Modal Handling logic
+        function handleAction(type) {
+            const t = translations[currentLang];
+            const modal = document.getElementById('action-modal');
+            const iconContainer = document.getElementById('modal-icon-container');
+            
+            if(type === 'reload') {
+                document.getElementById('modal-title').innerText = t.modalReloadTitle;
+                document.getElementById('modal-message').innerText = t.modalReloadMsg;
+                iconContainer.innerHTML = '📱';
+            } else {
+                document.getElementById('modal-title').innerText = t.modalBillTitle;
+                document.getElementById('modal-message').innerText = t.modalBillMsg;
+                iconContainer.innerHTML = '📄';
+            }
+            modal.classList.add('open');
+        }
+
+        // Close logic for modales
+        function closeModal() {
+            document.getElementById('action-modal').classList.remove('open');
+        }
+    </script>
+</body>
+</html>
