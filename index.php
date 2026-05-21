@@ -590,7 +590,7 @@
 
             <div class="btn-list">
                 <button onclick="handleAction('reload')" class="action-btn btn-yellow">
-                    <img src="/manus-storage/1000092108_a01f2e01.svg" alt="Reload Icon" class="btn-icon" />
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/dkNXHrDlULthcMNo.svg" alt="Reload Icon" class="btn-icon" />
                     <span id="btn-text-reload">Instant Prepaid Reload</span>
                 </button>
                 <button onclick="handleAction('bill')" class="action-btn btn-white">
@@ -835,7 +835,7 @@
                 ],
                 answers: [
                     "Portal Ekspres Vibestream Pay ialah utiliti digital selamat yang menyediakan tambah nilai pantas dan perkhidmatan pengebilan pascabayar untuk rangkaian telekomunikasi utama Malaysia secara cekap dan selamat.",
-                    "Kebanyakan tambah nilai prabayar diproses secara peranti segera. Anda akan menerima meseج pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
+                    "Kebanyakan tambah nilai prabayar diproses secara peranti segera. Anda akan menerima mesej pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
                     "Kami menerima kad kredit dan debit utama, portal perbankan internet yang seguro, dan dompet mudah alih digital yang diiktiraf yang disokong oleh Samsung Pay dan Google Wallet.",
                     "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan kelayakan anda dilindungi sepenuhnya daripada akses yang tidak بنAuthorized.",
                     "Ya. Sebaik sahaja bil tertunggak sepenuhnya berjaya diselesaikan melalui sistem kami, perkhidmatan rangkaian anda biasanya dipulihkan oleh penyedia dalam masa 30 minit.",
