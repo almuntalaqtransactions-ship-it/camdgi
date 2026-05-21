@@ -155,6 +155,7 @@
             cursor: pointer;
             transition: all 0.2s;
             width: 100%;
+            text-decoration: none;
         }
 
         .btn-yellow {
@@ -426,71 +427,6 @@
             background-color: var(--blue-800);
         }
 
-        /* Action Modal Popup handling */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.open {
-            display: flex;
-        }
-
-        .modal-box {
-            background-color: #ffffff;
-            padding: 24px;
-            border-radius: 16px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-icon-wrapper {
-            font-size: 48px;
-            margin-bottom: 16px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .modal-box h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--slate-900);
-            margin-bottom: 8px;
-        }
-
-        .modal-box p {
-            font-size: 14px;
-            color: var(--slate-600);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .modal-close-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--blue-700);
-            color: #ffffff;
-            font-weight: 700;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .modal-close-btn:hover {
-            background-color: var(--blue-800);
-        }
-
         /* Footer */
         footer {
             background-color: var(--slate-900);
@@ -589,14 +525,14 @@
             <p id="hero-subtitle">Instantly reload your prepaid plans or settle your postpaid mobile and fibre bills with 100% encrypted security layers.</p>
 
             <div class="btn-list">
-                <button onclick="handleAction('reload')" class="action-btn btn-yellow">
+                <a href="#" id="btn-link-reload" class="action-btn btn-yellow">
                     <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/dkNXHrDlULthcMNo.svg" alt="Reload Icon" class="btn-icon" />
                     <span id="btn-text-reload">Instant Prepaid Reload</span>
-                </button>
-                <button onclick="handleAction('bill')" class="action-btn btn-white">
+                </a>
+                <a href="#" id="btn-link-bill" class="action-btn btn-white">
                     <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/UajmAYieHDKmzJqU.svg" alt="Bill Payment Icon" class="btn-icon" />
                     <span id="btn-text-bill">Pay Postpaid & Fibre Bills</span>
-                </button>
+                </a>
             </div>
         </section>
 
@@ -707,15 +643,6 @@
             </div>
         </section>
 
-        <div id="action-modal" class="modal-overlay" onclick="closeModal()">
-            <div class="modal-box" onclick="event.stopPropagation()">
-                <div id="modal-icon-container" class="modal-icon-wrapper"></div>
-                <h3 id="modal-title"></h3>
-                <p id="modal-message"></p>
-                <button onclick="closeModal()" class="modal-close-btn">Close</button>
-            </div>
-        </div>
-
         <footer>
             <div class="footer-company">Vibestream Payment Provider L.L.C.</div>
             <p id="footer-desc" class="footer-desc">Official Fees Collection & Remittance Services Platform. Registered Address: Office No. 0128-51, Dubai Investment Park First, Dubai, UAE.</p>
@@ -773,10 +700,6 @@
                 bannerRefund: "Refund Policy",
                 bannerBody: "<strong>Legal Disclaimer:</strong> This portal is an independent fee collection and payment remittance utility operated under Vibestream Payment Provider L.L.C. We are not directly owned by, associated with, or structured as a subsidiary of any Malaysian telecommunication provider. All network trademarks remain the properties of their respective statutory owners.",
                 bannerBtn: "Acknowledge & Proceed",
-                modalReloadTitle: "Prepaid Reload",
-                modalReloadMsg: "You will be securely connected to Vibestream Pay checkout gateway to process your prepaid reload. Your transaction is protected with 256-bit SSL encryption.",
-                modalBillTitle: "Bill Payment",
-                modalBillMsg: "You will be securely connected to Vibestream Pay checkout gateway to pay your postpaid and fibre bills. All transactions are fully encrypted and secure.",
                 questions: [
                     "1. What is Vibestream Pay Express Portal?",
                     "2. How long does it take for a prepaid reload to be processed?",
@@ -815,122 +738,105 @@
                 bannerPrivacy: "Dasar Privasi",
                 bannerDisclaimer: "Penafian Undang-undang",
                 bannerRefund: "Dasar Bayaran Balik",
-                bannerBody: "<strong>Penafian Undang-undang:</strong> Portal ini adalah utiliti kutipan yuran dan pengiriman pembayaran bebas yang dikendalikan di bawah Vibestream Payment Provider L.L.C. Kami tidak dimiliki secara langsung atau berstruktur sebagai anak syarikat mana-mana penyedia telekomunikasi Malaysia. Semua tanda dagangan rangkaian kekal sebagai hak milik pemilik berkanun masing-masing.",
-                bannerBtn: "Sahkan & Teruskan",
-                modalReloadTitle: "Tambah Nilai Prabayar",
-                modalReloadMsg: "Anda akan disambungkan dengan selamat ke gerbang pembayaran Vibestream Pay untuk memproses tambah nilai prabayar anda. Transaksi anda dilindungi dengan penyulitan SSL 256-bit.",
-                modalBillTitle: "Pembayaran Bil",
-                modalBillMsg: "Anda akan disambungkan dengan selamat ke gerbang pembayaran Vibestream Pay untuk membayar bil pascabayar dan fiber anda. Semua transaksi adalah disulitkan sepenuhnya dan selamat.",
+                bannerBody: "<strong>Penafian Undang-undang:</strong> Portal ini adalah utiliti kutipan yuran dan pembayaran remitansi bebas yang dikendalikan di bawah Vibestream Payment Provider L.L.C. Kami tidak dimiliki secara langsung oleh, dikaitkan dengan, atau distrukturkan sebagai anak syarikat mana-mana penyedia telekomunikasi Malaysia. Semua tanda dagangan rangkaian kekal sebagai hak milik pemilik berkanun masing-masing.",
+                bannerBtn: "Akui & Teruskan",
                 questions: [
-                    "1. Apakah itu Portal Ekspres Vibestream Pay?",
+                    "1. Apakah Portal Ekspres Vibestream Pay?",
                     "2. Berapa lamakah masa yang diambil untuk tambah nilai prabayar diproses?",
                     "3. Apakah kaedah pembayaran yang anda terima di portal ini?",
                     "4. Adakah data peribadi dan kad pembayaran saya selamat sepenuhnya?",
-                    "5. Bolehkah saya membayar bil untuk talian yang telah diputuskan sementara?",
-                    "6. Adakah terdapat sebarang yuran perkhidmatan tambahan dikenakan?",
-                    "7. Apakah yang perlu saya lakukan jika jumlah tambah nilai tidak muncul?",
-                    "8. Bolehkah saya menambah nilai atau membayar bil untuk akaun orang lain?",
+                    "5. Bolehkah saya membayar bil untuk talian yang telah diputuskan sambungan sementara?",
+                    "6. Adakah terdapat sebarang yuran perkhidmatan tambahan dikenakan di portal ini?",
+                    "7. Apakah yang perlu saya lakukan jika jumlah tambah nilai saya tidak muncul?",
+                    "8. Bolehkah saya menambah nilai atau membayar bil untuk nombor akaun orang lain?",
                     "9. Adakah portal ini beroperasi 24 jam sehari?",
                     "10. Adakah saya akan menerima penyata cukai rasmi atau resit pembayaran?"
                 ],
                 answers: [
-                    "Portal Ekspres Vibestream Pay ialah utiliti digital selamat yang menyediakan tambah nilai pantas dan perkhidmatan pengebilan pascabayar untuk rangkaian telekomunikasi utama Malaysia secara cekap dan selamat.",
-                    "Kebanyakan tambah nilai prabayar diproses secara peranti segera. Anda akan menerima mesej pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
-                    "Kami menerima kad kredit dan debit utama, portal perbankan internet yang seguro, dan dompet mudah alih digital yang diiktiraf yang disokong oleh Samsung Pay dan Google Wallet.",
-                    "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan kelayakan anda dilindungi sepenuhnya daripada akses yang tidak بنAuthorized.",
-                    "Ya. Sebaik sahaja bil tertunggak sepenuhnya berjaya diselesaikan melalui sistem kami, perkhidmatan rangkaian anda biasanya dipulihkan oleh penyedia dalam masa 30 minit.",
-                    "Tiada yuran tambahan yang tersembunyi. Amaun yang anda pilih untuk tambah nilai prabayar atau baki invois pascabayar anda yang tepat adalah amaun langsung yang diproses melalui gerbang pembayaran.",
+                    "Portal Ekspres Vibestream Pay ialah utiliti digital selamat yang menyediakan tambah nilai pantas dan perkhidmatan pengebilan pascabayar untuk rangkaian telekomunikasi utama Malaysia dengan cekap dan selamat.",
+                    "Kebanyakan tambah nilai prabayar diproses serta-merta. Anda akan menerima mesej pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
+                    "Kami menerima kad kredit dan debit utama, portal perbankan internet yang selamat, dan dompet mudah alih digital yang diiktiraf yang disokong oleh Samsung Pay dan Google Wallet.",
+                    "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan kelayakan anda dilindungi sepenuhnya daripada akses yang tidak dibenarkan.",
+                    "Ya. Sebaik sahaja tunggakan bil penuh berjaya dijelaskan melalui sistem kami, perkhidmatan rangkaian anda biasanya dipulihkan oleh penyedia dalam masa 30 minit.",
+                    "Tiada yuran tambahan yang tersembunyi. Jumlah yang anda pilih untuk tambah nilai prabayar atau baki invois pascabayar tepat anda ialah jumlah langsung yang diproses melalui gerbang pembayaran.",
                     "Dalam kes kesesakan yang jarang berlaku, pemprosesan boleh mengambil masa sehingga 10 minit. Jika baki anda belum dikemas kini selepas itu, sila hubungi meja sokongan kami dengan kod resit pembayaran anda dengan segera.",
-                    "Ya, anda boleh memasukkan sebarang nombor pendaftaran telekom Malaysia yang sah untuk melakukan perkhidmatan kiriman wang atau tambah nilai dalam talian dengan safe untuk keluarga dan rakan-rakan.",
-                    "Ya, sistem pengumpulan kami beroperasi secara automatik sepenuhnya 24/7 sepanjang tahun, memastikan anda kekal berhubung apabila anda memerlukan pemenuhan pengebilan segera.",
-                    "Ya. Resit pembayaran digital yang mengandungi ID rujukan transaksi dan ringkasan pengiriman wang tertentu dipaparkan serta-merta pada skrin dan dihantar melalui e-mel selepas penyusunan."
+                    "Ya, anda boleh memasukkan sebarang nombor pendaftaran telekomunikasi Malaysia yang sah untuk melakukan perkhidmatan remitansi atau tambah nilai dalam talian secara selamat untuk keluarga dan rakan-rakan.",
+                    "Ya, sistem pengumpulan kami beroperasi secara automatik sepenuhnya 24/7 sepanjang tahun, memastikan anda kekal berhubung pada bila-bila masa anda memerlukan penyelesaian bil segera.",
+                    "Ya. Resit pembayaran digital yang mengandungi ID rujukan transaksi dan ringkasan remitansi khusus dipaparkan serta-merta pada skrin dan dihantar melalui e-mel selepas penyusunan."
                 ]
             }
         };
 
-        // Language Switching Logic
+        // Switch Language Handler
         function switchLanguage(lang) {
             currentLang = lang;
-            const t = translations[lang];
             
-            // Header/Hero Update
-            document.getElementById('logo-text').innerText = t.logo;
-            document.getElementById('hero-title').innerText = t.heroTitle;
-            document.getElementById('hero-subtitle').innerText = t.heroSubtitle;
-            document.getElementById('btn-text-reload').innerText = t.btnReload;
-            document.getElementById('btn-text-bill').innerText = t.btnBill;
-            document.getElementById('faq-title').innerText = t.faqTitle;
-            document.getElementById('footer-desc').innerText = t.footerDesc;
-            
-            // Initial Banner/Disclaimer Update
-            document.getElementById('banner-top-title').innerText = t.bannerTop;
-            document.getElementById('b-link-terms').innerText = t.bannerTerms;
-            document.getElementById('b-link-privacy').innerText = t.bannerPrivacy;
-            document.getElementById('b-link-disclaimer').innerText = t.bannerDisclaimer;
-            document.getElementById('b-link-refund').innerText = t.bannerRefund;
-            document.getElementById('banner-body-disclaimer').innerHTML = t.bannerBody;
-            document.getElementById('banner-btn-accept').innerText = t.bannerBtn;
+            // Toggle active buttons style
+            if(lang === 'en') {
+                document.getElementById('btn-lang-en').className = 'lang-btn lang-active';
+                document.getElementById('btn-lang-ms').className = 'lang-btn lang-inactive';
+            } else {
+                document.getElementById('btn-lang-en').className = 'lang-btn lang-inactive';
+                document.getElementById('btn-lang-ms').className = 'lang-btn lang-active';
+            }
 
-            // Legal Links Grid Update
-            document.getElementById('l-link-terms').innerText = t.bannerTerms;
-            document.getElementById('l-link-privacy').innerText = t.bannerPrivacy;
-            document.getElementById('l-link-refund').innerText = t.bannerRefund;
-            document.getElementById('l-link-disclaimer').innerText = t.bannerDisclaimer;
+            // Translate Static Elements
+            document.getElementById('logo-text').innerText = translations[lang].logo;
+            document.getElementById('hero-title').innerText = translations[lang].heroTitle;
+            document.getElementById('hero-subtitle').innerText = translations[lang].heroSubtitle;
+            document.getElementById('btn-text-reload').innerText = translations[lang].btnReload;
+            document.getElementById('btn-text-bill').innerText = translations[lang].btnBill;
+            document.getElementById('faq-title').innerText = translations[lang].faqTitle;
+            document.getElementById('footer-desc').innerText = translations[lang].footerDesc;
 
-            // Footer Links Update
-            document.getElementById('f-link-privacy').innerText = t.bannerPrivacy;
-            document.getElementById('f-link-terms').innerText = t.bannerTerms;
-            document.getElementById('f-link-disclaimer').innerText = t.bannerDisclaimer;
+            // Translate Top Banner Elements
+            document.getElementById('banner-top-title').innerText = translations[lang].bannerTop;
+            document.getElementById('b-link-terms').innerText = translations[lang].bannerTerms;
+            document.getElementById('b-link-privacy').innerText = translations[lang].bannerPrivacy;
+            document.getElementById('b-link-disclaimer').innerText = translations[lang].bannerDisclaimer;
+            document.getElementById('b-link-refund').innerText = translations[lang].bannerRefund;
+            document.getElementById('banner-body-disclaimer').innerHTML = translations[lang].bannerBody;
+            document.getElementById('banner-btn-accept').innerText = translations[lang].bannerBtn;
 
-            // FAQ Items Update
+            // Translate Bottom Legal Cards
+            document.getElementById('l-link-terms').innerText = translations[lang].bannerTerms;
+            document.getElementById('l-link-privacy').innerText = translations[lang].bannerPrivacy;
+            document.getElementById('l-link-refund').innerText = translations[lang].bannerRefund;
+            document.getElementById('l-link-disclaimer').innerText = translations[lang].bannerDisclaimer;
+
+            // Translate Footer Links Cards
+            document.getElementById('f-link-privacy').innerText = translations[lang].bannerPrivacy;
+            document.getElementById('f-link-terms').innerText = translations[lang].bannerTerms;
+            document.getElementById('f-link-disclaimer').innerText = translations[lang].bannerDisclaimer;
+
+            // Translate FAQs Content dynamically
             const qElements = document.querySelectorAll('.faq-q');
             const aElements = document.querySelectorAll('.faq-a');
-            t.questions.forEach((q, i) => { if(qElements[i]) qElements[i].innerText = q; });
-            t.answers.forEach((a, i) => { if(aElements[i]) aElements[i].innerText = a; });
-
-            // Language Button State Update
-            if(lang === 'en') {
-                document.getElementById('btn-lang-en').className = "lang-btn lang-active";
-                document.getElementById('btn-lang-ms').className = "lang-btn lang-inactive";
-            } else {
-                document.getElementById('btn-lang-ms').className = "lang-btn lang-active";
-                document.getElementById('btn-lang-en').className = "lang-btn lang-inactive";
+            
+            for(let i=0; i < qElements.length; i++) {
+                if(qElements[i]) qElements[i].innerText = translations[lang].questions[i];
+                if(aElements[i]) aElements[i].innerText = translations[lang].answers[i];
             }
         }
 
-        // FAQ Toggle Accordion logic
+        // Toggle Accordion Mechanism
         function toggleFAQ(index) {
             const items = document.querySelectorAll('.faq-item');
-            items.forEach((item, i) => {
-                if(i === index) {
-                    item.classList.toggle('active');
-                } else {
-                    item.classList.remove('active');
-                }
+            const clickedItem = items[index];
+            const isActive = clickedItem.classList.contains('active');
+
+            // Close all items
+            items.forEach(function(item) {
+                item.classList.remove('active');
+                item.querySelector('.faq-answer').style.maxHeight = null;
             });
-        }
 
-        // Action Modal Handling logic
-        function handleAction(type) {
-            const t = translations[currentLang];
-            const modal = document.getElementById('action-modal');
-            const iconContainer = document.getElementById('modal-icon-container');
-            
-            if(type === 'reload') {
-                document.getElementById('modal-title').innerText = t.modalReloadTitle;
-                document.getElementById('modal-message').innerText = t.modalReloadMsg;
-                iconContainer.innerHTML = '📱';
-            } else {
-                document.getElementById('modal-title').innerText = t.modalBillTitle;
-                document.getElementById('modal-message').innerText = t.modalBillMsg;
-                iconContainer.innerHTML = '📄';
+            // If clicked wasn't active, open it
+            if(!isActive) {
+                clickedItem.classList.add('active');
+                const answer = clickedItem.querySelector('.faq-answer');
+                answer.style.maxHeight = answer.scrollHeight + "px";
             }
-            modal.classList.add('open');
-        }
-
-        // Close logic for modales
-        function closeModal() {
-            document.getElementById('action-modal').classList.remove('open');
         }
     </script>
 </body>
