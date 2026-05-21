@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فومو ديجيتال - خدمات المرور</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18160205082"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18160205082');
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #007a53;
+            --light-mint: #e8f5f1;
+            --bg-white: #ffffff;
+            --footer-black: #000000;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-white);
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-right { display: flex; align-items: center; gap: 15px; }
+        .menu-icon { font-size: 24px; cursor: pointer; color: var(--primary-green); }
+        .company-name { font-weight: 800; font-size: 1.2rem; color: #000; }
+        
+        .lang-btn {
+            background-color: #fff;
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .container { padding: 20px 15px; max-width: 500px; margin: 0 auto; }
+
+        .main-title {
+            text-align: center;
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 20px 0 30px 0;
+            line-height: 1.4;
+        }
+
+        .service-card {
+            background-color: var(--light-mint);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,122,83,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,122,83,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,122,83,0.2);
+        }
+
+        .query-btn {
+            background-color: var(--primary-green);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .service-icon {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            width: 40px;
+            text-align: center;
+        }
+
+        .card-content { flex: 1; margin: 0 15px; text-align: right; }
+        .card-title { color: var(--primary-green); font-size: 1.1rem; font-weight: 800; display: block; }
+        .card-desc { color: #555; font-size: 0.85rem; margin-top: 4px; }
+
+        .faq-section { margin-top: 40px; }
+        .faq-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; }
+        
+        .faq-item {
+            background: #fff;
+            border: 1px solid #eee;
+            margin-bottom: 12px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000;
+            font-size: 0.95rem;
+        }
+
+        .faq-question .plus { color: var(--primary-green); font-size: 1.4rem; }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: #fafafa; }
+        .faq-answer p { padding: 15px; margin: 0; font-size: 0.9rem; color: #666; line-height: 1.6; }
+
+        .legal-stack {
+            margin: 40px 0;
+            text-align: right;
+        }
+        
+        .legal-stack a {
+            display: block;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: color 0.3s;
+        }
+
+        .legal-stack a:hover {
+            color: #004d34;
+        }
+
+        footer {
+            background-color: var(--footer-black);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .f-disclaimer {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            border-bottom: 1px solid #222;
+            padding-bottom: 20px;
+        }
+
+        .f-info { font-size: 0.9rem; line-height: 2; }
+        .f-info .comp-name { color: #fff; display: block; font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+        .f-info .detail { color: #bbb; display: block; }
+        .f-info .operator-text { color: #fff; display: block; font-size: 1.05rem; font-weight: bold; margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px; }
+
+        /* تنسيق البانر الافتتاحي المعلق */
+        .banner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .banner-content {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 30px 25px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid var(--primary-green);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .banner-header {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .banner-comp-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .banner-text-ar {
+            font-size: 0.95rem;
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: justify;
+        }
+
+        .banner-text-en {
+            font-size: 0.85rem;
+            color: #666666;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            text-align: justify;
+            direction: ltr;
+            border-top: 1px dashed #e0e0e0;
+            padding-top: 15px;
+        }
+
+        .banner-btn {
+            background-color: var(--primary-green);
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            box-shadow: 0 4px 12px rgba(0,122,83,0.3);
+        }
+
+        .banner-btn:hover {
+            background-color: #00593c;
+        }
+    </style>
+</head>
+<body>
+
+<div id="welcomeBanner" class="banner-overlay">
+    <div class="banner-content">
+        <div class="banner-header">الاستعلام والدفع عن مخالفات المرور في الامارات</div>
+        <span class="banner-comp-name">بواسطة فومو ديجيتال</span>
+        
+        <div class="banner-text-ar">
+            إخلاء مسؤولية: فومو ديجيتال هي منصة دفع وتحصيل إلكتروني مستقلة (وسيط تقني) لتسهيل المعاملات، وليست جهة حكومية رسمية ولا تمثل شرطة المرور أو هيئات الطرق.
+        </div>
+        
+        <div class="banner-text-en">
+            Disclaimer: FOMO DIGITAL is an independent electronic payment and collection service provider (technical intermediary) to facilitate transactions. It is not a government entity and does not represent the traffic police or road authorities.
+        </div>
+        
+        <button class="banner-btn" onclick="startService()">ابدأ الخدمة</button>
+    </div>
+</div>
+
+<header>
+    <div class="header-right">
+        <div class="menu-icon">☰</div>
+        <div class="company-name">فومو ديجيتال</div>
+    </div>
+    <a href="index.html" class="lang-btn">English</a>
+</header>
+
+<div class="container">
+    
+    <h1 class="main-title">خدمات الاستعلام عن المخالفات المرورية ودفعها في الإمارات</h1>
+
+    <a href="https://vasrsaea.online" class="service-card">
+        <div class="service-icon"><i class="fas fa-car-side"></i></div>
+        <div class="card-content">
+            <span class="card-title">استعلام بواسطة رقم اللوحة</span>
+            <p class="card-desc">فحص سريع باستخدام بيانات المركبة</p>
+        </div>
+        <div class="query-btn">استعلام</div>
+    </a>
+
+    <a href="https://vasrsaea.online" class="service-card">
+        <div class="service-icon"><i class="fas fa-folder-open"></i></div>
+        <div class="card-content">
+            <span class="card-title">استعلام بواسطة الملف المروري</span>
+            <p class="card-desc">عرض جميع المخالفات على ملفك الشخصي</p>
+        </div>
+        <div class="query-btn">استعلام</div>
+    </a>
+
+    <a href="https://vasrsaea.online" class="service-card">
+        <div class="service-icon"><i class="fas fa-id-card"></i></div>
+        <div class="card-content">
+            <span class="card-title">استعلام بواسطة الرخصة</span>
+            <p class="card-desc">البحث عن المخالفات المسجلة على رخصتك</p>
+        </div>
+        <div class="query-btn">استعلام</div>
+    </a>
+
+    <div class="faq-section">
+        <div class="faq-title">الأسئلة الشائعة</div>
+
+        <div class="faq-item">
+            <div class="faq-question">كيف يمكنني الاستعلام عن المخالفات المرورية؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>يمكنك الاستعلام بسهولة عن طريق اختيار الخدمة المناسبة (لوحة، رخصة، أو ملف مروري) وإدخال التفاصيل المطلوبة.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">هل بوابة الدفع آمنة ومحمية؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>نعم، نستخدم تشفير SSL عالي المستوى وبوابات دفع معتمدة لضمان حماية بياناتك المالية بالكامل.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">متى يتم تحديث المخالفة بعد الدفع؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>يتم تحديث المخالفات عادةً في النظام الرسمي خلال دقائق قليلة وحتى 24 ساعة عمل بعد إتمام المعاملة بنجاح.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">هل يمكنني دفع مخالفات جميع إمارات الدولة؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>نعم، تدعم منصتنا خدمات الاستعلام والدفع للمخالفات المرورية المسجلة في جميع إمارات دولة الإمارات العربية المتحدة.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">ماذا أفعل إذا استمرت المخالفة في الظهور بعد الدفع؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>يرجى الانتظار لمزامنة النظام. إذا استمرت بعد 24 ساعة، تواصل مع الدعم الفني لدينا مع إرفاق إيصال المعاملة.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">هل توجد أي رسوم خدمة إضافية؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>قد يتم تطبيق رسوم إدارية بسيطة مقابل تقديم خدمات التحصيل الإلكتروني السريع والتسهيلات التقنية.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">كيف أحصل على إيصال الدفع الخاص بي؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>سيتم إرسال إيصال رقمي تلقائيًا إلى بريدك الإلكتروني المسجل فور تأكيد عملية الدفع.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">هل يمكنني الاعتراض على مخالفة عبر هذا الموقع؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>لا، هذه المنصة للاستعلام والدفع فقط. يجب تقديم الاعتراضات عبر القنوات الرسمية لهيئات المرور المختصة.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">ما هي طرق الدفع المقبولة؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>نقبل جميع البطاقات الائتمانية وبطاقات الخصم الرئيسية، بما في ذلك فيزا وماستركارد والبطاقات المحلية المعتمدة في الدولة.</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">هل الخدمة متوفرة خلال العطلات الرسمية؟ <span class="plus">+</span></div>
+            <div class="faq-answer"><p>نعم، المنصة تعمل على مدار الساعة 24/7، مما يتيح لك الاستعلام ودفع المخالفات في أي وقت بما في ذلك عطلات نهاية الأسبوع والأعياد.</p></div>
+        </div>
+    </div>
+
+    <div class="legal-stack">
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">الشروط والأحكام</a>
+        <a href="disclaimer.html">إخلاء المسؤولية</a>
+        <a href="refund.html">سياسة الاسترداد</a>
+    </div>
+</div>
+
+<footer>
+    <div class="f-disclaimer">
+        إخلاء مسؤولية: هذا الموقع مستقل تماماً ويتم تشغيله بواسطة فومو ديجيتال لخدمات تحصيل الرسوم والدفعيات ش.ذ.م.م، وهي منصة دفع وتحصيل إلكتروني مستقلة (وسيط تقني) ولا تمثل أي جهة حكومية رسمية.
+    </div>
+    
+    <div class="f-info">
+        <span class="comp-name">FOMO DIGITAL FOR FEES COLLECTION & PAYMENTS SERVICES L.L.C</span>
+        <span class="detail">رقم الرخصة الموحد: 952748</span>
+        <span class="detail">الموقع القانوني: مكتب رقم 196-1، مجمع دبي للاستثمار الثانية، دبي، الإمارات العربية المتحدة</span>
+        <span class="detail">الرخصة صادرة عن دائرة الاقتصاد والسياحة في دبي وصالحة حتى: 05-05-2027</span>
+        <span class="operator-text">يتم تشغيل هذا الموقع بواسطة فومو ديجيتال لخدمات تحصيل الرسوم والدفعيات ش.ذ.م.م</span>
+    </div>
+</footer>
+
+<script>
+    // دالة إخفاء البانر الافتتاحي عند الضغط على ابدأ الخدمة
+    function startService() {
+        document.getElementById('welcomeBanner').style.display = 'none';
+    }
+
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            const plus = item.querySelector('.plus');
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                plus.innerText = "+";
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                plus.innerText = "−";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
