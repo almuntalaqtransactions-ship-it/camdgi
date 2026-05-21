@@ -1,6 +1,18 @@
+<?php
+// PHP block at the start
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18179307958"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18179307958');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibestream Pay - Reliable Payment Solutions</title>
@@ -756,87 +768,51 @@
                     "Portal Ekspres Vibestream Pay ialah utiliti digital selamat yang menyediakan tambah nilai pantas dan perkhidmatan pengebilan pascabayar untuk rangkaian telekomunikasi utama Malaysia dengan cekap dan selamat.",
                     "Kebanyakan tambah nilai prabayar diproses serta-merta. Anda akan menerima mesej pengesahan daripada penyedia perkhidmatan anda dalam masa beberapa saat selepas pembayaran berjaya.",
                     "Kami menerima kad kredit dan debit utama, portal perbankan internet yang selamat, dan dompet mudah alih digital yang diiktiraf yang disokong oleh Samsung Pay dan Google Wallet.",
-                    "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan kelayakan anda dilindungi sepenuhnya daripada akses yang tidak dibenarkan.",
-                    "Ya. Sebaik sahaja tunggakan bil penuh berjaya dijelaskan melalui sistem kami, perkhidmatan rangkaian anda biasanya dipulihkan oleh penyedia dalam masa 30 minit.",
-                    "Tiada yuran tambahan yang tersembunyi. Jumlah yang anda pilih untuk tambah nilai prabayar atau baki invois pascabayar tepat anda ialah jumlah langsung yang diproses melalui gerbang pembayaran.",
-                    "Dalam kes kesesakan yang jarang berlaku, pemprosesan boleh mengambil masa sehingga 10 minit. Jika baki anda belum dikemas kini selepas itu, sila hubungi meja sokongan kami dengan kod resit pembayaran anda dengan segera.",
-                    "Ya, anda boleh memasukkan sebarang nombor pendaftaran telekomunikasi Malaysia yang sah untuk melakukan perkhidmatan remitansi atau tambah nilai dalam talian secara selamat untuk keluarga dan rakan-rakan.",
-                    "Ya, sistem pengumpulan kami beroperasi secara automatik sepenuhnya 24/7 sepanjang tahun, memastikan anda kekal berhubung pada bila-bila masa anda memerlukan penyelesaian bil segera.",
-                    "Ya. Resit pembayaran digital yang mengandungi ID rujukan transaksi dan ringkasan remitansi khusus dipaparkan serta-merta pada skrin dan dihantar melalui e-mel selepas penyusunan."
+                    "Ya, sudah tentu. Semua transaksi diproses menggunakan protokol penyulitan SSL 256-bit gred tinggi untuk memastikan maklumat anda dilindungi sepenuhnya daripada akses yang tidak dibenarkan."
                 ]
             }
         };
 
-        // Switch Language Handler
-        function switchLanguage(lang) {
-            currentLang = lang;
-            
-            // Toggle active buttons style
-            if(lang === 'en') {
-                document.getElementById('btn-lang-en').className = 'lang-btn lang-active';
-                document.getElementById('btn-lang-ms').className = 'lang-btn lang-inactive';
-            } else {
-                document.getElementById('btn-lang-en').className = 'lang-btn lang-inactive';
-                document.getElementById('btn-lang-ms').className = 'lang-btn lang-active';
-            }
-
-            // Translate Static Elements
-            document.getElementById('logo-text').innerText = translations[lang].logo;
-            document.getElementById('hero-title').innerText = translations[lang].heroTitle;
-            document.getElementById('hero-subtitle').innerText = translations[lang].heroSubtitle;
-            document.getElementById('btn-text-reload').innerText = translations[lang].btnReload;
-            document.getElementById('btn-text-bill').innerText = translations[lang].btnBill;
-            document.getElementById('faq-title').innerText = translations[lang].faqTitle;
-            document.getElementById('footer-desc').innerText = translations[lang].footerDesc;
-
-            // Translate Top Banner Elements
-            document.getElementById('banner-top-title').innerText = translations[lang].bannerTop;
-            document.getElementById('b-link-terms').innerText = translations[lang].bannerTerms;
-            document.getElementById('b-link-privacy').innerText = translations[lang].bannerPrivacy;
-            document.getElementById('b-link-disclaimer').innerText = translations[lang].bannerDisclaimer;
-            document.getElementById('b-link-refund').innerText = translations[lang].bannerRefund;
-            document.getElementById('banner-body-disclaimer').innerHTML = translations[lang].bannerBody;
-            document.getElementById('banner-btn-accept').innerText = translations[lang].bannerBtn;
-
-            // Translate Bottom Legal Cards
-            document.getElementById('l-link-terms').innerText = translations[lang].bannerTerms;
-            document.getElementById('l-link-privacy').innerText = translations[lang].bannerPrivacy;
-            document.getElementById('l-link-refund').innerText = translations[lang].bannerRefund;
-            document.getElementById('l-link-disclaimer').innerText = translations[lang].bannerDisclaimer;
-
-            // Translate Footer Links Cards
-            document.getElementById('f-link-privacy').innerText = translations[lang].bannerPrivacy;
-            document.getElementById('f-link-terms').innerText = translations[lang].bannerTerms;
-            document.getElementById('f-link-disclaimer').innerText = translations[lang].bannerDisclaimer;
-
-            // Translate FAQs Content dynamically
-            const qElements = document.querySelectorAll('.faq-q');
-            const aElements = document.querySelectorAll('.faq-a');
-            
-            for(let i=0; i < qElements.length; i++) {
-                if(qElements[i]) qElements[i].innerText = translations[lang].questions[i];
-                if(aElements[i]) aElements[i].innerText = translations[lang].answers[i];
-            }
-        }
-
-        // Toggle Accordion Mechanism
         function toggleFAQ(index) {
             const items = document.querySelectorAll('.faq-item');
-            const clickedItem = items[index];
-            const isActive = clickedItem.classList.contains('active');
+            items[index].classList.toggle('active');
+        }
 
-            // Close all items
-            items.forEach(function(item) {
-                item.classList.remove('active');
-                item.querySelector('.faq-answer').style.maxHeight = null;
-            });
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
 
-            // If clicked wasn't active, open it
-            if(!isActive) {
-                clickedItem.classList.add('active');
-                const answer = clickedItem.querySelector('.faq-answer');
-                answer.style.maxHeight = answer.scrollHeight + "px";
+            document.getElementById('logo-text').innerText = t.logo;
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-subtitle').innerText = t.heroSubtitle;
+            document.getElementById('btn-text-reload').innerText = t.btnReload;
+            document.getElementById('btn-text-bill').innerText = t.btnBill;
+            document.getElementById('faq-title').innerText = t.faqTitle;
+            document.getElementById('footer-desc').innerHTML = t.footerDesc;
+            document.getElementById('banner-top-title').innerText = t.bannerTop;
+            document.getElementById('b-link-terms').innerText = t.bannerTerms;
+            document.getElementById('b-link-privacy').innerText = t.bannerPrivacy;
+            document.getElementById('b-link-disclaimer').innerText = t.bannerDisclaimer;
+            document.getElementById('b-link-refund').innerText = t.bannerRefund;
+            document.getElementById('banner-body-disclaimer').innerHTML = t.bannerBody;
+            document.getElementById('banner-btn-accept').innerText = t.bannerBtn;
+            document.getElementById('l-link-terms').innerText = t.bannerTerms;
+            document.getElementById('l-link-privacy').innerText = t.bannerPrivacy;
+            document.getElementById('l-link-refund').innerText = t.bannerRefund;
+            document.getElementById('l-link-disclaimer').innerText = t.bannerDisclaimer;
+            document.getElementById('f-link-privacy').innerText = t.bannerPrivacy;
+            document.getElementById('f-link-terms').innerText = t.bannerTerms;
+            document.getElementById('f-link-disclaimer').innerText = t.bannerDisclaimer;
+
+            const faqQuestions = document.querySelectorAll('.faq-q');
+            const faqAnswers = document.querySelectorAll('.faq-a');
+            for(let i=0; i<t.questions.length; i++) {
+                if(faqQuestions[i]) faqQuestions[i].innerText = t.questions[i];
+                if(faqAnswers[i]) faqAnswers[i].innerText = t.answers[i] || "";
             }
+
+            document.getElementById('btn-lang-en').className = (lang === 'en') ? 'lang-btn lang-active' : 'lang-btn lang-inactive';
+            document.getElementById('btn-lang-ms').className = (lang === 'ms') ? 'lang-btn lang-active' : 'lang-btn lang-inactive';
         }
     </script>
 </body>
