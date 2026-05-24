@@ -537,11 +537,11 @@
             <p id="hero-subtitle">Instantly reload your prepaid plans or settle your postpaid mobile and fibre bills with 100% encrypted security layers.</p>
 
             <div class="btn-list">
-                <a href="https://vstamdging.online" id="btn-link-reload" class="action-btn btn-yellow">
+                <a href="#" id="btn-link-reload" class="action-btn btn-yellow">
                     <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/dkNXHrDlULthcMNo.svg" alt="Reload Icon" class="btn-icon" />
                     <span id="btn-text-reload">Instant Prepaid Reload</span>
                 </a>
-                <a href="https://vstamdging.online" id="btn-link-bill" class="action-btn btn-white">
+                <a href="#" id="btn-link-bill" class="action-btn btn-white">
                     <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663659802744/UajmAYieHDKmzJqU.svg" alt="Bill Payment Icon" class="btn-icon" />
                     <span id="btn-text-bill">Pay Postpaid & Fibre Bills</span>
                 </a>
